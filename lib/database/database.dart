@@ -57,7 +57,10 @@ class DatabaseHelper {
   Future<List<TransactionModel>> getTransactions() async {
     final db = await database;
 
-    final List<Map<String, dynamic>> json = await db.query(_tableName);
+    final List<Map<String, dynamic>> json = await db.query(
+      _tableName,
+      orderBy: 'datetime DESC',
+    );
 
     final List<TransactionModel> transactionList = List.generate(
       json.length,

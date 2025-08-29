@@ -30,7 +30,7 @@ class _FinancialTrackerAppState extends State<FinancialTrackerApp> {
     setState(() {
       transactionList = transactions;
       totalMoney = transactionList.fold(0, (sum, transaction) {
-        if (transaction.cashFlow == Cashflow.expense.name.toUpperCase()) {
+        if (transaction.cashFlow == Cashflow.expense.value) {
           return sum -= transaction.amount;
         }
 

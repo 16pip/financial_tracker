@@ -135,20 +135,17 @@ class _AddTransactionModalState extends State<AddTransactionModal> {
                 items: Cashflow.values.map((flow) {
                   return DropdownMenuItem<Cashflow>(
                     value: flow,
-                    child: Text(
-                      flow.name[0].toUpperCase() +
-                          flow.name.substring(1), // Expense / Income
-                    ),
+                    child: Text(flow.value),
                   );
                 }).toList(),
                 onChanged: (value) {
                   setState(() {
-                    cashflowController.text = value!.name.toUpperCase();
+                    cashflowController.text = value!.value;
                   });
                 },
 
                 validator: (value) {
-                  if (value == null || value.toString() == "") {
+                  if (value == null || value.value == "") {
                     return "Please select an item";
                   }
                   return null;

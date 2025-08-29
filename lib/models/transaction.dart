@@ -1,4 +1,10 @@
-enum Cashflow { expense, income }
+enum Cashflow {
+  expense("EXPENSE"),
+  income("INCOME");
+
+  const Cashflow(this.value);
+  final String value;
+}
 
 class TransactionModel {
   int? id;
